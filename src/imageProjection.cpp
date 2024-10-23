@@ -343,12 +343,20 @@ public:
         std::lock_guard<std::mutex> lock1(imuLock);
         std::lock_guard<std::mutex> lock2(odoLock);
 
+        // if (ROS_TIME(imuQueue.back().header.stamp) < timeScanEnd)
+        //     RCLCPP_INFO(get_logger(), "I'm here 1 ...");
+
+
         // make sure IMU data available for the scan
-        if (imuQueue.empty() || ROS_TIME(imuQueue.front().header.stamp) > timeScanCur || ROS_TIME(imuQueue.back().header.stamp) < timeScanEnd)
+        // if (imuQueue.empty() || ROS_TIME(imuQueue.front().header.stamp) > timeScanCur || ROS_TIME(imuQueue.back().header.stamp) < timeScanEnd)
+        if (imuQueue.empty())
         {
             RCLCPP_DEBUG(get_logger(), "Waiting for IMU data ...");
+            // RCLCPP_INFO(get_logger(), "I'm here 1 ...");
             return false;
         }
+
+        // RCLCPP_INFO(get_logger(), "I'm here 2 ...");
 
         imuDeskewInfo();
 
