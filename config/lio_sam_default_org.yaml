@@ -4,14 +4,14 @@
     reliability_policy: "reliability_reliable"
 
     # Topics
-    pointCloudTopic: "lidar_points"               # Point cloud data
-    imuTopic: "topic_imu"                         # IMU data
+    pointCloudTopic: "points_raw"               # Point cloud data
+    imuTopic: "imu_raw"                         # IMU data
     odomTopic: "odometry/imu"                   # IMU pre-preintegration odometry, same frequency as IMU
     gpsTopic: "gps/fixz"                   # GPS odometry topic from navsat, see module_navsat.launch file
 
     # Frames
-    lidarFrame: "hesai_lidar"
-    baselinkFrame: "hesai_lidar"
+    lidarFrame: "base_link"
+    baselinkFrame: "base_link"
     odometryFrame: "odom"
     mapFrame: "map"
 
@@ -36,7 +36,7 @@
 
     # IMU Settings
     imuType: 0                                  # 0: 6-axis  1: 9-axis
-    imuRate: 20.0
+    imuRate: 500.0
     imuAccNoise: 3.9939570888238808e-03
     imuGyrNoise: 1.5636343949698187e-03
     imuAccBiasN: 6.4356659353532566e-05
