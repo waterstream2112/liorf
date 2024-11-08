@@ -327,9 +327,9 @@ public:
         // rotate acceleration
         Eigen::Vector3d acc(imu_in.linear_acceleration.x, imu_in.linear_acceleration.y, imu_in.linear_acceleration.z);
         acc = extRot * acc;
-        imu_out.linear_acceleration.x = acc.x();
-        imu_out.linear_acceleration.y = acc.y();
-        imu_out.linear_acceleration.z = acc.z();
+        imu_out.linear_acceleration.x = acc.x()*9.8;
+        imu_out.linear_acceleration.y = acc.y()*9.8;
+        imu_out.linear_acceleration.z = acc.z()*9.8;
         // rotate gyroscope
         Eigen::Vector3d gyr(imu_in.angular_velocity.x, imu_in.angular_velocity.y, imu_in.angular_velocity.z);
         gyr = extRot * gyr;

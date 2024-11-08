@@ -312,11 +312,11 @@ public:
                     break;
                 }
             }
-            if (ringFlag == -1)
-            {
-                RCLCPP_ERROR_STREAM(get_logger(), "Point cloud ring channel not available, please configure your point cloud data!");
-                rclcpp::shutdown();
-            }
+            // if (ringFlag == -1)
+            // {
+            //     RCLCPP_ERROR_STREAM(get_logger(), "Point cloud ring channel not available, please configure your point cloud data!");
+            //     rclcpp::shutdown();
+            // }
         }
 
         // check point time
